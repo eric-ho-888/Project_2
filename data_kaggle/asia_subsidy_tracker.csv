@@ -1,0 +1,23 @@
+country,iso3,gasoline_subsidized,diesel_subsidized,subsidy_type,annual_subsidy_cost_bn_usd,subsidy_pct_gdp,subsidy_description,last_price_change,pricing_mechanism,regulator
+Pakistan,PAK,True,True,Partial,5.2,2.0,Massive 42.7% price hike Apr 1; variable levy + GST; partial subsidy remains,2026-04-01,Petroleum Levy + GST adjustments,OGRA
+India,IND,True,True,Emergency,8.5,2.1,OMCs absorbing ~Rs24/L petrol losses and ~Rs104/L diesel losses; emergency subsidy mode,2026-04-01,Oil Marketing Companies absorbing losses,MoPNG
+Bangladesh,BGD,True,True,Full,2.8,1.1,Government-set prices; BPC absorbing massive losses during crisis,2026-03-25,Fixed retail prices,BPC
+China,CHN,False,True,Ceiling,0.0,0.0,NDRC pricing mechanism with floor/ceiling; limited price hikes during crisis,2026-03-28,Price adjustment every 10 working days; ceiling enforced,NDRC
+Japan,JPN,True,True,Expanded,8.2,4.5,Expanded subsidy to cap gasoline at ¥175/L; now includes diesel subsidy,2026-04-01,Government subsidy expanded to wholesalers + diesel,METI
+South Korea,KOR,True,False,Emergency,2.1,0.8,Emergency fuel tax cuts reintroduced; 15% excise reduction on gasoline,2026-03-28,Emergency fuel tax cuts + price cap on refined products,MOTIE
+Thailand,THA,True,True,Partial,5.8,2.5,Oil Fund depleted; government considering emergency fiscal support,2026-04-03,Oil Fund + emergency excise tax reduction,EPPO
+Malaysia,MYS,True,True,Full,14.2,6.5,BUDI95 subsidy cost surging; diesel subsidy unsustainable at RM 3.72/L unsubsidized,2026-04-01,BUDI95 program + diesel targeted subsidy,MoF
+Indonesia,IDN,True,True,Full,18.5,7.8,Pertalite & Solar heavily subsidized; Pertamina absorbing record losses,2026-04-01,Pertamina-administered prices; considering price review,MEMR
+Vietnam,VNM,False,True,Stabilization,0.6,0.3,Price stabilization fund nearly exhausted; emergency fund injection planned,2026-03-28,Fuel price stabilization fund + emergency measures,MoIT
+Philippines,PHL,False,False,None,0.0,0.0,Fully deregulated; fuel excise tax suspension being debated in Congress,2026-04-01,Market determines prices; excise suspension proposed,DOE
+Singapore,SGP,False,False,None,0.0,0.0,Fully market-based; record high prices at pumps,2026-04-01,No intervention; carbon tax applies,EMA
+Myanmar,MMR,True,True,Partial,0.8,0.3,Military government rationing fuel in some regions,2026-03-15,State-controlled pricing + rationing,MOEE
+Taiwan,TWN,True,True,Expanded,3.5,1.5,CPC absorbing massive losses; government expanded stabilization fund,2026-04-01,CPC stabilization mechanism expanded,MOEA
+Brunei,BRN,True,True,Full,0.5,0.3,Heavily subsidized as oil-producing nation; no change,2026-01-01,State-subsidized since independence,JPKE
+Cambodia,KHM,False,False,None,0.0,0.0,Fully deregulated; market-based pricing; crisis hitting consumers hard,2026-04-01,Market pricing with minimal oversight,MME
+Laos,LAO,False,False,Stabilization,0.0,0.0,Price stabilization fund depleted; floating prices,2026-03-25,Government price cap mechanism strained,MEM
+Nepal,NPL,True,True,Emergency,0.4,0.3,NOC emergency subsidy on diesel; petrol prices raised,2026-04-01,NOC-administered pricing; emergency subsidy,NOC
+Mongolia,MNG,False,False,None,0.0,0.0,Market-based; dependent on Russian imports; prices rising,2026-03-20,Free market pricing,MoE
+Afghanistan,AFG,False,False,None,0.0,0.0,Informal market; no government intervention; severe shortages,2026-03-15,Unregulated fuel market,N/A
+Timor-Leste,TLS,False,False,None,0.0,0.0,Market-based; oil fund revenues rising but prices up sharply,2026-03-20,Petroleum Fund model,MoF
+Sri Lanka,LKA,False,False,Deregulated,0.0,0.0,Pricing formula linked to Singapore Platts; prices surging,2026-04-01,Cost-reflective formula since 2023 crisis,CPC

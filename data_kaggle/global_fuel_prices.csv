@@ -1,0 +1,61 @@
+country,region,iso3,gasoline_usd_per_liter,diesel_usd_per_liter,local_currency,gasoline_local_price,diesel_local_price,price_date,is_asian,avg_fuel_usd
+Pakistan,South Asia,PAK,1.64,1.86,PKR,458.41,520.35,2026-04-04,1,1.75
+India,South Asia,IND,1.11,1.03,INR,94.77,87.67,2026-04-04,1,1.07
+Bangladesh,South Asia,BGD,1.07,0.93,BDT,130.0,112.0,2026-04-04,1,1.0
+Sri Lanka,South Asia,LKA,1.34,1.19,LKR,398.0,355.0,2026-04-04,1,1.27
+Nepal,South Asia,NPL,1.34,1.21,NPR,182.0,165.0,2026-04-04,1,1.27
+Afghanistan,South Asia,AFG,0.86,0.81,AFN,62.0,58.0,2026-04-04,1,0.84
+China,East Asia,CHN,1.26,1.12,CNY,9.2,8.15,2026-04-04,1,1.19
+Japan,East Asia,JPN,1.15,1.04,JPY,175.0,158.0,2026-04-04,1,1.1
+South Korea,East Asia,KOR,1.37,1.22,KRW,1938.6,1720.0,2026-04-04,1,1.3
+Taiwan,East Asia,TWN,1.06,0.91,TWD,34.5,29.5,2026-04-04,1,0.99
+Mongolia,East Asia,MNG,1.06,1.02,MNT,3680.0,3560.0,2026-04-04,1,1.04
+Thailand,Southeast Asia,THA,1.24,1.1,THB,43.95,38.94,2026-04-04,1,1.17
+Malaysia,Southeast Asia,MYS,0.46,0.86,MYR,1.99,3.72,2026-04-04,1,0.66
+Indonesia,Southeast Asia,IDN,0.61,0.72,IDR,10000.0,11800.0,2026-04-04,1,0.66
+Vietnam,Southeast Asia,VNM,1.09,0.95,VND,27850.0,24300.0,2026-04-04,1,1.02
+Philippines,Southeast Asia,PHL,1.26,1.13,PHP,72.5,64.98,2026-04-04,1,1.19
+Singapore,Southeast Asia,SGP,2.53,2.05,SGD,3.44,2.79,2026-04-04,1,2.29
+Cambodia,Southeast Asia,KHM,1.27,1.17,KHR,5200.0,4800.0,2026-04-04,1,1.22
+Myanmar,Southeast Asia,MMR,1.12,1.02,MMK,2350.0,2150.0,2026-04-04,1,1.07
+Laos,Southeast Asia,LAO,1.32,1.16,LAK,18200.0,16000.0,2026-04-04,1,1.24
+Brunei,Southeast Asia,BRN,0.39,0.23,BND,0.53,0.31,2026-04-04,1,0.31
+Timor-Leste,Southeast Asia,TLS,1.38,1.32,USD,1.38,1.32,2026-04-04,1,1.35
+Saudi Arabia,Middle East,SAU,0.62,0.48,SAR,2.33,1.79,2026-04-04,1,0.55
+UAE,Middle East,ARE,0.89,1.28,AED,3.28,4.69,2026-04-04,1,1.08
+Kuwait,Middle East,KWT,0.34,0.37,KWD,0.105,0.115,2026-04-04,1,0.36
+Qatar,Middle East,QAT,0.58,0.62,QAR,2.1,2.25,2026-04-04,1,0.6
+Bahrain,Middle East,BHR,0.58,0.47,BHD,0.22,0.178,2026-04-04,1,0.52
+Oman,Middle East,OMN,0.65,0.62,OMR,0.252,0.239,2026-04-04,1,0.64
+Iran,Middle East,IRN,0.05,0.02,IRR,15000.0,6000.0,2026-04-04,1,0.04
+Iraq,Middle East,IRQ,0.65,0.55,IQD,850.0,720.0,2026-04-04,1,0.6
+Turkey,Middle East,TUR,1.37,1.45,TRY,52.5,55.4,2026-04-04,1,1.41
+Israel,Middle East,ISR,2.2,2.12,ILS,8.2,7.89,2026-04-04,1,2.16
+Jordan,Middle East,JOR,1.34,0.78,JOD,0.95,0.555,2026-04-04,1,1.06
+United Kingdom,Europe,GBR,2.0,2.12,GBP,1.58,1.67,2026-04-04,0,2.06
+Germany,Europe,DEU,2.28,2.51,EUR,2.1,2.31,2026-04-04,0,2.39
+France,Europe,FRA,2.16,2.39,EUR,1.99,2.2,2026-04-04,0,2.28
+Italy,Europe,ITA,2.12,2.02,EUR,1.95,1.86,2026-04-04,0,2.07
+Spain,Europe,ESP,1.83,1.72,EUR,1.68,1.58,2026-04-04,0,1.78
+Netherlands,Europe,NLD,2.55,2.72,EUR,2.35,2.5,2026-04-04,0,2.64
+Norway,Europe,NOR,2.25,2.08,NOK,24.5,22.7,2026-04-04,0,2.16
+Sweden,Europe,SWE,2.06,2.28,SEK,21.8,24.15,2026-04-04,0,2.17
+Switzerland,Europe,CHE,2.11,2.22,CHF,1.88,1.98,2026-04-04,0,2.16
+Poland,Europe,POL,1.81,1.76,PLN,7.35,7.12,2026-04-04,0,1.78
+Russia,Europe,RUS,0.63,0.66,RUB,58.2,60.5,2026-04-04,0,0.64
+United States,North America,USA,1.08,1.22,USD,1.08,1.22,2026-04-04,0,1.15
+Canada,North America,CAN,1.43,1.55,CAD,1.98,2.14,2026-04-04,0,1.49
+Mexico,North America,MEX,1.31,1.24,MXN,27.2,25.85,2026-04-04,0,1.27
+Brazil,South America,BRA,1.3,1.16,BRL,6.85,6.08,2026-04-04,0,1.23
+Argentina,South America,ARG,1.15,1.05,ARS,1250.0,1150.0,2026-04-04,0,1.1
+Colombia,South America,COL,0.77,0.65,COP,3200.0,2720.0,2026-04-04,0,0.71
+Venezuela,South America,VEN,0.02,0.01,VES,0.5,0.25,2026-04-04,0,0.02
+Chile,South America,CHL,1.55,1.18,CLP,1520.0,1155.0,2026-04-04,0,1.36
+Nigeria,Africa,NGA,0.49,0.99,NGN,780.0,1580.0,2026-04-04,0,0.74
+South Africa,Africa,ZAF,1.39,1.42,ZAR,25.8,26.4,2026-04-04,0,1.4
+Egypt,Africa,EGY,0.29,0.23,EGP,14.5,11.5,2026-04-04,0,0.26
+Kenya,Africa,KEN,1.92,1.78,KES,248.0,230.0,2026-04-04,0,1.85
+Ethiopia,Africa,ETH,0.61,0.58,ETB,78.0,74.0,2026-04-04,0,0.6
+Australia,Oceania,AUS,1.38,1.68,AUD,2.15,2.62,2026-04-04,0,1.53
+New Zealand,Oceania,NZL,1.91,1.52,NZD,3.28,2.62,2026-04-04,0,1.72
+Fiji,Oceania,FJI,1.38,1.34,FJD,3.15,3.05,2026-04-04,0,1.36
