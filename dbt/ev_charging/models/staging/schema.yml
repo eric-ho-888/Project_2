@@ -1,0 +1,7 @@
+version: 2
+
+sources:
+  - name: ev_raw
+    schema: ev_raw
+    tables:
+      - name: ev_charging_raw
