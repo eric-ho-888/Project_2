@@ -1,7 +1,72 @@
 version: 2
 
-sources:
-  - name: ev_raw
-    schema: ev_raw
-    tables:
-      - name: ev_charging_raw
+models:
+  - name: stg_ev_charging
+    description: "Staging model for Singapore EV charging point data from LTA DataMall."
+
+    columns:
+
+      - name: ev_cp_id
+        description: "Unique identifier for the EV charging point."
+        tests:
+          - not_null
+          - unique
+
+      - name: station_name
+        description: "Name of the charging station."
+        tests:
+          - not_null
+
+      - name: address
+        description: "Charging station address."
+        tests:
+          - not_null
+
+      - name: latitude
+        description: "Latitude of the charging point."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              arguments:
+                min_value: -90
+                max_value: 90
+
+      - name: longitude
+        description: "Longitude of the charging point."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              arguments:
+                min_value: 103
+                max_value: 104
+
+      - name: charger_status
+        description: "Charging point status."
+
+      - name: ev_id_status
+        description: "EV charging point status indicator."
+
+      - name: plug_type
+        description: "Charging plug type."
+
+      - name: current_type
+        description: "Electrical current type, such as AC."
+
+      - name: power_rating_kw
+        description: "Charging power rating in kW."
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              arguments:
+                min_value: 0
+                max_value: 500
+
+      - name: price
+        description: "Charging price."
+
+      - name: operator
+        description: "Charging point operator."
+
+      - name: ingestion_timestamp
+        description: "Timestamp when the record was ingested."
+        tests:
+          - not_null
