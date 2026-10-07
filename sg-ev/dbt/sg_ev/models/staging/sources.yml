@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: ev_raw
+    database: sg-ev-510713
+    schema: ev_raw
+
+    tables:
+      - name: ev_charging_raw

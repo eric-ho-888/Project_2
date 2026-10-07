@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: stg_ev_charging
+    description: "Cleaned and standardized LTA EV charging point data."
+
+    columns:
+      - name: ev_cp_id
+        description: "Unique EV charging point identifier."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: station_name
+        description: "Name of the EV charging station. May be missing in the LTA source data."
+        
+      - name: latitude
+        description: "Latitude of the charging station."
+        data_tests:
+          - not_null
+
+      - name: longitude
+        description: "Longitude of the charging station."
+        data_tests:
+          - not_null
+
+      - name: postal_code
+        description: "Singapore postal code."
+        data_tests:
+          - not_null
+
+      - name: plug_type
+        description: "EV charging plug type."
+        data_tests:
+          - not_null
+
+      - name: price
+        description: "Charging price."
+
+      - name: power_rating_kw
+        description: "Charging power rating in kW."
+
+      - name: current_type
+        description: "Electrical current type, such as AC or DC."
+
+      - name: charger_status
+        description: "Current charger availability/status."
+
+      - name: ingestion_timestamp
+        description: "Timestamp when the record was ingested."
+        data_tests:
+          - not_null

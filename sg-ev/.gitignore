@@ -1,0 +1,11 @@
+.env
+*.json
+
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+dbt/sg_ev/target/
+dbt/sg_ev/dbt_packages/
+
+.venv/

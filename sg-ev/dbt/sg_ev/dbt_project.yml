@@ -1,0 +1,26 @@
+name: sg_ev
+version: "1.0.0"
+config-version: 2
+
+profile: sg_ev
+
+model-paths:
+  - models
+
+macro-paths:
+  - macros
+
+clean-targets:
+  - target
+  - dbt_packages
+
+models:
+  sg_ev:
+
+    staging:
+      +materialized: view
+      +schema: ev_staging
+
+    star:
+      +materialized: table
+      +schema: ev_analytics
