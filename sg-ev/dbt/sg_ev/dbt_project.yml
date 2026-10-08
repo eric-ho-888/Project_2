@@ -24,3 +24,7 @@ models:
     star:
       +materialized: table
       +schema: ev_analytics
+
+    analytics:
+      +materialized: table
+      +schema: ev_analytics
