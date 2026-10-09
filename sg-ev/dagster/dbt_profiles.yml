@@ -1,0 +1,10 @@
+sg_ev:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: sg-ev-510713
+      dataset: ev_raw
+      location: US
+      threads: 4

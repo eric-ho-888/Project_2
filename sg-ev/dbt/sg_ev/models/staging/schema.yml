@@ -1,52 +1,88 @@
 version: 2
 
 models:
-  - name: stg_ev_charging
-    description: "Cleaned and standardized LTA EV charging point data."
 
-    columns:
-      - name: ev_cp_id
-        description: "Unique EV charging point identifier."
-        data_tests:
-          - not_null
-          - unique
+- name: stg_ev_charging
+  description: "Cleaned and standardized LTA EV charging point data."
 
-      - name: station_name
-        description: "Name of the EV charging station. May be missing in the LTA source data."
-        
-      - name: latitude
-        description: "Latitude of the charging station."
-        data_tests:
-          - not_null
+  columns:
 
-      - name: longitude
-        description: "Longitude of the charging station."
-        data_tests:
-          - not_null
+  - name: ev_cp_id
+    description: "Unique EV charging point identifier."
+    data_tests:
 
-      - name: postal_code
-        description: "Singapore postal code."
-        data_tests:
-          - not_null
+    - not_null
+    - unique
 
-      - name: plug_type
-        description: "EV charging plug type."
-        data_tests:
-          - not_null
+  - name: station_name
+    description: "Name of the EV charging station. May be missing in the LTA source data."
 
-      - name: price
-        description: "Charging price."
+  - name: latitude
+    description: "Latitude of the charging station in Singapore."
+    data_tests:
 
-      - name: power_rating_kw
-        description: "Charging power rating in kW."
+    - not_null
+    - dbt_expectations.expect_column_values_to_be_between:
+        arguments:
+          min_value: 1.0
+          max_value: 2.0
 
-      - name: current_type
-        description: "Electrical current type, such as AC or DC."
+  - name: longitude
+    description: "Longitude of the charging station in Singapore."
+    data_tests:
 
-      - name: charger_status
-        description: "Current charger availability/status."
+    - not_null
+    - dbt_expectations.expect_column_values_to_be_between:
+        arguments:
+          min_value: 103.0
+          max_value: 105.0
 
-      - name: ingestion_timestamp
-        description: "Timestamp when the record was ingested."
-        data_tests:
-          - not_null
+  - name: postal_code
+    description: "Singapore postal code."
+    data_tests:
+
+    - not_null
+    - dbt_expectations.expect_column_values_to_match_regex:
+        arguments:
+          regex: '^[0-9]{6}$'
+
+  - name: plug_type
+    description: "EV charging plug type."
+    data_tests:
+
+    - not_null
+
+  - name: price
+    description: "Charging price; null values are permitted."
+    data_tests:
+
+    - dbt_expectations.expect_column_values_to_be_between:
+        arguments:
+          min_value: 0
+          row_condition: "price IS NOT NULL"
+
+  - name: power_rating_kw
+    description: "Charging power rating in kW."
+    data_tests:
+
+    - not_null
+    - dbt_expectations.expect_column_values_to_be_between:
+        arguments:
+          min_value: 0
+          
+  - name: current_type
+    description: "Electrical current type, such as AC or DC."
+    data_tests:
+
+    - accepted_values:
+        arguments:
+          values: ['AC', 'DC']
+
+  - name: charger_status
+    description: "Current charger availability/status."
+
+  - name: ingestion_timestamp
+    description: "Timestamp when the record was ingested."
+    data_tests:
+
+    - not_null

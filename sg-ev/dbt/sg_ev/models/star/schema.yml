@@ -1,0 +1,27 @@
+
+version: 2
+
+models:
+  - name: dim_ev_charger
+    description: "Dimension table containing descriptive attributes for each EV charging point."
+
+    columns:
+      - name: ev_cp_id
+        description: "Unique identifier for an EV charging point."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: operator
+        description: "Company operating the charging point."
+
+      - name: plug_type
+        description: "Charging connector type."
+
+      - name: power_rating_kw
+        description: "Rated charging power in kilowatts."
+        data_tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              arguments:
+                min_value: 0

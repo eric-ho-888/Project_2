@@ -1,0 +1,90 @@
+services:
+  user_code:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+      - dagster
+      - api
+      - grpc
+      - --host
+      - 0.0.0.0
+      - --port
+      - "4000"
+      - --module-name
+      - sg_ev_dagster.definitions
+    env_file:
+      - .env
+    environment:
+      DAGSTER_HOME: /opt/dagster/dagster_home
+      GOOGLE_APPLICATION_CREDENTIALS: /var/secrets/google/adc.json
+      GCP_PROJECT: sg-ev-510713
+      GCP_PROJECT_ID: sg-ev-510713
+      GCP_LOCATION: US
+      BQ_DATASET: ev_raw
+      BQ_RAW_DATASET: ev_raw
+      BQ_TABLE: ev_charging_raw
+      BQ_RAW_TABLE: ev_charging_raw
+    volumes:
+      - dagster_home:/opt/dagster/dagster_home
+      - ${HOME}/.config/gcloud/application_default_credentials.json:/var/secrets/google/adc.json:ro
+      - ./dagster/dbt_profiles.yml:/opt/dagster/.dbt/profiles.yml:ro
+      - ./dagster/dagster.yaml:/opt/dagster/dagster_home/dagster.yaml:ro
+    expose:
+      - "4000"
+    restart: unless-stopped
+
+  dagster_webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+      - dagster-webserver
+      - --host
+      - 0.0.0.0
+      - --port
+      - "3000"
+      - -w
+      - /opt/sg-ev/workspace.yaml
+    environment:
+      DAGSTER_HOME: /opt/dagster/dagster_home
+    volumes:
+      - dagster_home:/opt/dagster/dagster_home
+      - ./dagster/dagster.yaml:/opt/dagster/dagster_home/dagster.yaml:ro
+      - ./workspace.yaml:/opt/sg-ev/workspace.yaml:ro
+    ports:
+      - "3000:3000"
+    depends_on:
+      - user_code
+    restart: unless-stopped
+
+  dagster_daemon:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+      - dagster-daemon
+      - run
+    env_file:
+      - .env
+    environment:
+      DAGSTER_HOME: /opt/dagster/dagster_home
+      GOOGLE_APPLICATION_CREDENTIALS: /var/secrets/google/adc.json
+      GCP_PROJECT: sg-ev-510713
+      GCP_PROJECT_ID: sg-ev-510713
+      GCP_LOCATION: US
+      BQ_DATASET: ev_raw
+      BQ_RAW_DATASET: ev_raw
+      BQ_TABLE: ev_charging_raw
+      BQ_RAW_TABLE: ev_charging_raw
+    volumes:
+      - dagster_home:/opt/dagster/dagster_home
+      - ${HOME}/.config/gcloud/application_default_credentials.json:/var/secrets/google/adc.json:ro
+      - ./dagster/dbt_profiles.yml:/opt/dagster/.dbt/profiles.yml:ro
+      - ./dagster/dagster.yaml:/opt/dagster/dagster_home/dagster.yaml:ro
+    depends_on:
+      - user_code
+    restart: unless-stopped
+
+volumes:
+  dagster_home:

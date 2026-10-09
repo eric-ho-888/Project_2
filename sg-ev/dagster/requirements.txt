@@ -1,0 +1,8 @@
+dagster
+dagster-webserver
+dagster-docker
+requests
+python-dotenv
+google-cloud-bigquery
+dbt-core
+dbt-bigquery

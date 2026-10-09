@@ -1,0 +1,9 @@
+.env
+.git
+__pycache__/
+*.pyc
+*.bak
+dbt/sg_ev/target/
+dbt/sg_ev/dbt_packages/
+dbt/sg_ev/logs/
+*-??????*.json

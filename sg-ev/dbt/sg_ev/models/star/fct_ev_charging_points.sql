@@ -16,6 +16,7 @@ SELECT
     price,
     price_type,
     charger_status,
+    ev_id_status,
     operating_hours,
 
 CASE

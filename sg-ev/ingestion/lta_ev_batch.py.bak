@@ -15,17 +15,17 @@ load_dotenv()
 
 GCP_PROJECT = os.getenv(
     "GCP_PROJECT",
-    os.getenv("GCP_PROJECT_ID", "sg-ev-510713"),
+    "sg-ev-510713",
 )
 
 BQ_DATASET = os.getenv(
     "BQ_DATASET",
-    os.getenv("BQ_RAW_DATASET", "ev_raw"),
+    "ev_raw",
 )
 
 BQ_TABLE = os.getenv(
     "BQ_TABLE",
-    os.getenv("BQ_RAW_TABLE", "ev_charging_raw"),
+    "ev_charging_raw",
 )
 
 LTA_BASE_URL = (
@@ -732,18 +732,16 @@ def insert_into_bigquery(rows, batch_id):
         SELECT *
         FROM `{stage_table_id}`;
 
-        IF CURRENT_DATE('Asia/Singapore') <= DATE '2026-10-16' THEN
-          INSERT INTO `{HISTORY_TABLE_ID}`
-          SELECT
-            s.*,
-            @batch_id AS batch_id
-          FROM `{stage_table_id}` AS s
-          WHERE NOT EXISTS (
-            SELECT 1
-            FROM `{HISTORY_TABLE_ID}`
-            WHERE batch_id = @batch_id
-          );
-        END IF;
+        INSERT INTO `{HISTORY_TABLE_ID}`
+        SELECT
+          s.*,
+          @batch_id AS batch_id
+        FROM `{stage_table_id}` AS s
+        WHERE NOT EXISTS (
+          SELECT 1
+          FROM `{HISTORY_TABLE_ID}`
+          WHERE batch_id = @batch_id
+        );
 
         COMMIT TRANSACTION;
         """
