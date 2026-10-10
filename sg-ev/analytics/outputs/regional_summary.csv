@@ -1,6 +1,6 @@
 region,total_connectors,available_connectors,occupied_connectors,connectors_with_unknown_status,ac_connectors,dc_connectors,average_price_per_kwh,average_power_rating_kw,connectors_with_incomplete_pricing,stations_fully_occupied,stations_with_available_connectors,stations_not_available
-Central,3539,2646,732,161,2911,628,0.703,30.42,69,309,803,55
-West,2607,2092,414,101,2270,337,0.683,23.68,63,147,509,30
-East,2378,1764,486,128,2057,321,0.704,25.36,24,243,578,43
-North-East,1566,1131,384,51,1445,121,0.7,14.8,11,213,379,4
-North,1515,1167,291,57,1318,197,0.696,24.0,36,157,368,25
+Central,3539,2737,670,132,2911,628,0.703,30.42,69,297,829,38
+West,2607,2006,524,77,2270,337,0.683,23.68,63,166,507,19
+East,2378,1789,503,86,2057,321,0.705,25.36,24,266,581,30
+North-East,1566,1078,439,49,1445,121,0.7,14.8,11,247,370,2
+North,1515,1139,341,35,1318,197,0.696,24.0,36,184,367,6

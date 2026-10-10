@@ -1,26 +1,43 @@
 
+import os
 import subprocess
 import sys
+from pathlib import Path
 
-from dagster import (
-    Definitions,
-    ScheduleDefinition,
-    job,
-    op,
-)
+from dagster import Definitions, job, op
 
-PROJECT_ROOT = "/opt/sg-ev"
-DBT_PROJECT = f"{PROJECT_ROOT}/dbt/sg_ev"
-DBT_PROFILES = "/opt/dagster/.dbt"
-ANALYTICS_SCRIPT = f"{PROJECT_ROOT}/analytics/ev_analysis.py"
+
+# Resolve the project root from this file's location.
+# Local: /home/eric/NTU_DSAI/Project_2/sg-ev
+# Docker: /opt/sg-ev
+PROJECT_ROOT = Path(
+    os.environ.get(
+        "SG_EV_PROJECT_ROOT",
+        str(Path(__file__).resolve().parents[2]),
+    )
+).resolve()
+
+DBT_PROJECT = PROJECT_ROOT / "dbt" / "sg_ev"
+
+# Local default: ~/.dbt
+# Docker can override this with DBT_PROFILES_DIR=/opt/dagster/.dbt
+DBT_PROFILES = Path(
+    os.environ.get(
+        "DBT_PROFILES_DIR",
+        str(Path.home() / ".dbt"),
+    )
+).expanduser()
+
+ANALYTICS_SCRIPT = PROJECT_ROOT / "analytics" / "ev_analysis.py"
+INGESTION_SCRIPT = PROJECT_ROOT / "ingestion" / "lta_ev_batch.py"
 
 
 @op
 def ingest_lta_batch() -> bool:
     """Refresh the current LTA EV charging snapshot."""
     subprocess.run(
-        [sys.executable, f"{PROJECT_ROOT}/ingestion/lta_ev_batch.py"],
-        cwd=PROJECT_ROOT,
+        [sys.executable, str(INGESTION_SCRIPT)],
+        cwd=str(PROJECT_ROOT),
         check=True,
     )
     return True
@@ -38,11 +55,11 @@ def run_dbt_build(ingestion_succeeded: bool) -> bool:
         [
             "dbt",
             "build",
-            "--project-dir", DBT_PROJECT,
-            "--profiles-dir", DBT_PROFILES,
+            "--project-dir", str(DBT_PROJECT),
+            "--profiles-dir", str(DBT_PROFILES),
             "--target", "dev",
         ],
-        cwd=DBT_PROJECT,
+        cwd=str(DBT_PROJECT),
         check=True,
     )
     return True
@@ -57,12 +74,12 @@ def run_ev_analytics(dbt_succeeded: bool) -> bool:
         )
 
     subprocess.run(
-        [sys.executable, ANALYTICS_SCRIPT],
-        cwd=PROJECT_ROOT,
+        [sys.executable, str(ANALYTICS_SCRIPT)],
+        cwd=str(PROJECT_ROOT),
         check=True,
     )
-    return True
 
+    return True
 
 @job
 def ev_charging_pipeline():
@@ -70,14 +87,8 @@ def ev_charging_pipeline():
     run_ev_analytics(dbt_succeeded)
 
 
-daily_ev_schedule = ScheduleDefinition(
-    job=ev_charging_pipeline,
-    cron_schedule="30 9 * * *",
-    execution_timezone="Asia/Singapore",
-)
-
-
+# Manual execution only. Cloud Scheduler owns production scheduling.
 defs = Definitions(
     jobs=[ev_charging_pipeline],
-    schedules=[daily_ev_schedule],
+    schedules=[],
 )

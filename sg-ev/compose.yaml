@@ -17,6 +17,7 @@ services:
       - .env
     environment:
       DAGSTER_HOME: /opt/dagster/dagster_home
+      DBT_PROFILES_DIR: /opt/dagster/.dbt
       GOOGLE_APPLICATION_CREDENTIALS: /var/secrets/google/adc.json
       GCP_PROJECT: sg-ev-510713
       GCP_PROJECT_ID: sg-ev-510713
@@ -70,6 +71,7 @@ services:
       - .env
     environment:
       DAGSTER_HOME: /opt/dagster/dagster_home
+      DBT_PROFILES_DIR: /opt/dagster/.dbt
       GOOGLE_APPLICATION_CREDENTIALS: /var/secrets/google/adc.json
       GCP_PROJECT: sg-ev-510713
       GCP_PROJECT_ID: sg-ev-510713
