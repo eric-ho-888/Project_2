@@ -13,19 +13,24 @@ DBT_PROJECT = f"{PROJECT_ROOT}/dbt/sg_ev"
 DBT_PROFILES = "/opt/dagster/.dbt"
 
 
+
 @op
-def ingest_lta_batch():
+def ingest_lta_batch() -> bool:
     """Refresh the current LTA EV charging snapshot."""
     subprocess.run(
         [sys.executable, f"{PROJECT_ROOT}/ingestion/lta_ev_batch.py"],
         cwd=PROJECT_ROOT,
         check=True,
     )
+    return True
 
 
 @op
-def run_dbt_build():
+def run_dbt_build(ingestion_succeeded: bool):
     """Run dbt models and tests after successful ingestion."""
+    if not ingestion_succeeded:
+        raise RuntimeError("LTA ingestion did not succeed; stopping dbt build.")
+
     subprocess.run(
         [
             "dbt",
@@ -41,8 +46,7 @@ def run_dbt_build():
 
 @job
 def ev_charging_pipeline():
-    ingest_lta_batch()
-    run_dbt_build()
+    run_dbt_build(ingest_lta_batch())
 
 
 daily_ev_schedule = ScheduleDefinition(

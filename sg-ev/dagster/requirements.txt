@@ -6,3 +6,7 @@ python-dotenv
 google-cloud-bigquery
 dbt-core
 dbt-bigquery
+pandas
+polars
+matplotlib
+db-dtypes

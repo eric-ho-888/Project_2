@@ -1,0 +1,8 @@
+.env
+.git
+__pycache__/
+*.pyc
+dbt/sg_ev/target/
+dbt/sg_ev/dbt_packages/
+dbt/sg_ev/logs/
+dagster/dbt_profiles.yml

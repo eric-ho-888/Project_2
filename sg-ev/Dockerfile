@@ -17,6 +17,7 @@ RUN pip install --no-cache-dir -r /tmp/requirements.txt
 COPY ingestion/ /opt/sg-ev/ingestion/
 COPY dbt/sg_ev/ /opt/sg-ev/dbt/sg_ev/
 COPY dagster/sg_ev_dagster/ /opt/sg-ev/dagster/sg_ev_dagster/
+COPY analytics/ /opt/sg-ev/analytics/
 COPY workspace.yaml /opt/sg-ev/workspace.yaml
 
 RUN mkdir -p /opt/dagster/dagster_home /opt/dagster/.dbt

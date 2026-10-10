@@ -1,0 +1,9 @@
+metric,value
+total_connectors,11605.0
+available_connectors,8800.0
+occupied_connectors,2307.0
+unknown_status_connectors,498.0
+ac_connectors,10001.0
+dc_connectors,1604.0
+average_power_rating_kw,24.92286083584662
+average_price_per_kwh,0.6971879319417645

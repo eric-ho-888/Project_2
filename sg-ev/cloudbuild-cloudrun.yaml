@@ -1,0 +1,13 @@
+
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -f
+      - Dockerfile.cloudrun
+      - -t
+      - asia-southeast1-docker.pkg.dev/sg-ev-510713/sg-ev-docker/sg-ev-pipeline:latest
+      - .
+
+images:
+  - asia-southeast1-docker.pkg.dev/sg-ev-510713/sg-ev-docker/sg-ev-pipeline:latest

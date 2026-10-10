@@ -1,0 +1,21 @@
+FROM python:3.11-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV GOOGLE_CLOUD_PROJECT=sg-ev-510713
+ENV GCP_PROJECT=sg-ev-510713
+ENV DBT_PROFILES_DIR=/opt/dbt-profiles
+
+WORKDIR /opt/sg-ev
+
+COPY dagster/requirements.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
+
+COPY ingestion/ /opt/sg-ev/ingestion/
+COPY dbt/sg_ev/ /opt/sg-ev/dbt/sg_ev/
+COPY cloud_run/run_pipeline.py /opt/sg-ev/cloud_run/run_pipeline.py
+COPY dagster/dbt_profiles_cloudrun.yml /opt/dbt-profiles/profiles.yml
+
+RUN dbt deps --project-dir /opt/sg-ev/dbt/sg_ev
+
+CMD ["python", "/opt/sg-ev/cloud_run/run_pipeline.py"]

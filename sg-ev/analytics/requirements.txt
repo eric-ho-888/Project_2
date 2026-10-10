@@ -1,0 +1,6 @@
+pandas
+polars
+matplotlib
+google-cloud-bigquery
+db-dtypes
+python-dotenv

@@ -1,0 +1,6 @@
+region,pandas_connector_rows,polars_connector_rows,counts_match
+Central,3539,3539,True
+East,2378,2378,True
+North,1515,1515,True
+North-East,1566,1566,True
+West,2607,2607,True
