@@ -1,4 +1,4 @@
-# SG EV Charging Analytics — Architecture
+# SG EV Charging Point Analytics — Architecture
 
 ## 1. Overview
 
