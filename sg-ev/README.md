@@ -305,8 +305,7 @@ matching. Counts are snapshots and will change when new LTA data is loaded.
 ## Temporary history-snapshot plan
 
 The project plan is to append one history snapshot per Singapore calendar
-day through **16 October 2026 inclusive**. From **17 October 2026** onward,
-stop appending new history snapshots while continuing to refresh the current
+day. You can manually stop appending new history snapshots while continuing to refresh the current
 raw snapshot and run the production pipeline.
 
 The ingestion guard prevents a new history snapshot when one already

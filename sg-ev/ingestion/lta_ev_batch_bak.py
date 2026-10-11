@@ -732,25 +732,28 @@ def insert_into_bigquery(rows, batch_id):
         SELECT *
         FROM `{stage_table_id}`;
 
+        
+        IF CURRENT_DATE('Asia/Singapore') <= DATE '2026-10-16' THEN
+          INSERT INTO `{HISTORY_TABLE_ID}`
+          SELECT
+            s.*,
+            @batch_id AS batch_id
+          FROM `{stage_table_id}` AS s
+          WHERE NOT EXISTS (
+            SELECT 1
+            FROM `{HISTORY_TABLE_ID}` AS h
+            WHERE DATE(
+              h.ingestion_timestamp,
+              'Asia/Singapore'
+            ) = CURRENT_DATE('Asia/Singapore')
+          )
+          AND NOT EXISTS (
+            SELECT 1
+            FROM `{HISTORY_TABLE_ID}` AS h
+            WHERE h.batch_id = @batch_id
+          );
+        END IF;
 
-        INSERT INTO `{HISTORY_TABLE_ID}`
-        SELECT
-          s.*,
-          @batch_id AS batch_id
-        FROM `{stage_table_id}` AS s
-        WHERE NOT EXISTS (
-          SELECT 1
-          FROM `{HISTORY_TABLE_ID}` AS h
-          WHERE DATE(
-            h.ingestion_timestamp,
-            'Asia/Singapore'
-          ) = CURRENT_DATE('Asia/Singapore')
-        )
-        AND NOT EXISTS (
-          SELECT 1
-          FROM `{HISTORY_TABLE_ID}` AS h
-          WHERE h.batch_id = @batch_id
-        );
 
         COMMIT TRANSACTION;
         """

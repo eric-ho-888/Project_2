@@ -42,7 +42,7 @@ flowchart TD
 
     A --> B
     B --> C
-    B -. "Temporary daily snapshots<br/>through 16 Oct 2026" .-> H
+    B -. "Temporary daily snapshots" .-> H
     C --> D
     D --> E
     E --> F
@@ -134,8 +134,7 @@ production runs.
 ## 6. Temporary history plan
 
 The project plan is to retain one daily history snapshot per Singapore
-calendar day through 16 October 2026 inclusive. History appending should
-stop from 17 October 2026 onward, while refreshing the current snapshot
+calendar day. History appending should execute, while refreshing the current snapshot
 and running the production pipeline should continue.
 
 The ingestion guard prevents another snapshot from being appended when
