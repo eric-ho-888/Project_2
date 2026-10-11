@@ -38,8 +38,8 @@ to access BigQuery.
 
 Files are written to analytics/outputs/.
 
-- regional_connectors.png
-- connector_status_by_region.png
+- regional_charging_points.png
+- charging_point_status_by_region.png
 - ac_dc_distribution.png
 - operator_distribution.png
 - power_rating_by_region.png
