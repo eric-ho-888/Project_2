@@ -1,4 +1,4 @@
-region,pandas_connector_rows,polars_connector_rows,counts_match
+region,pandas_charging_point_rows,polars_charging_point_rows,counts_match
 Central,3539,3539,True
 East,2378,2378,True
 North,1515,1515,True
