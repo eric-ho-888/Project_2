@@ -1,4 +1,4 @@
-# Singapore EV Charging Analytics
+# Singapore EV Charging Point Analytics
 
 An end-to-end data engineering and analytics project using Singapore's
 LTA DataMall EV Charging Points Batch API, Google Cloud, BigQuery, dbt,
