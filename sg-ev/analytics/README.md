@@ -60,9 +60,8 @@ if the counts do not match.
 Charts describe the current ingested snapshot. They should not be
 interpreted as historical trends without suitable historical data.
 
-Historical snapshot collection is intended to stop after
-16 October 2026. Current data refreshes and dbt transformations
-can continue after that date.
+Historical snapshot collection continues unless manually paused, 
+followed by both data refreshes and dbt transformations.
 
 ## Project structure
 
