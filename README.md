@@ -48,7 +48,7 @@ Jupyter notebooks for exploratory data analysis.
 
 ### `sg-ev/`
 
-The EV charging infrastructure pipeline: ingestion from LTA DataMall, transformation with dbt, orchestration with Dagster, and deployment via Cloud Run. See **[`sg-ev/README.md`](./sg-ev/README.md)** for full setup and usage details. Check **[sg-ev/docs/architecture.md](./sg-ev/docs/architecture.md)** for architecture layout. Refer **[sg-ev/analytics/README.md](./sg-ev/analytics/README.md)** for data visualization analysis on data collected from LTA/BigQuery.
+The EV charging infrastructure pipeline: ingestion from LTA DataMall, transformation with dbt, orchestration with Dagster, and deployment via Cloud Run. See **[`sg-ev/README.md`](./sg-ev/README.md)** for full setup and usage details. Check **[`sg-ev/docs/architecture.md`](./sg-ev/docs/architecture.md)** for architecture layout. Refer **[`sg-ev/analytics/README.md`](./sg-ev/analytics/README.md)** for data visualization analysis on data collected from LTA/BigQuery.
 
 ## Getting started
 
