@@ -1,6 +1,6 @@
 # Project_2
 
-Data engineering and analysis project covering fuel prices, vehicle registration trends, and EV charging infrastructure in Singapore, drawing on Kaggle datasets, the LTA DataMall API, and a cloud-based (cloud scheduler job run) and local (ad-hoc job run) ELT pipeline.
+Data engineering and analysis project covering fuel prices, vehicle registration trends, and EV charging infrastructure in Singapore, drawing on Kaggle datasets, the LTA DataMall API, a cloud-based (Cloud Scheduler job run) and a local (ad-hoc Docker Dagster job run) ELT pipeline.
 
 ## Folder structure
 
