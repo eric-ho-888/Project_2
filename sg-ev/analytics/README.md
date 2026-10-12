@@ -1,4 +1,4 @@
-# Singapore EV Charging Point Analytics
+# Singapore EV Charging Point Analytics - Data Visualization
 
 ## Overview
 
