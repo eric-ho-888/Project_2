@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: datamall
+    database: "{{ target.project }}"
+    schema: datamall_ev_charging
+
+    tables:
+      - name: ev_charging_points
+        description: "Historical EV charging snapshots from LTA DataMall"
+
+      - name: hdb_carpark
+        description: "Cleaned HDB carpark data with numeric IDs and geographic coordinates"
+
+      - name: ura_planning_areas_2025
+        description: "URA Master Plan 2025 planning area boundaries"
