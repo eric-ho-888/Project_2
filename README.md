@@ -50,7 +50,7 @@ Jupyter notebooks for exploratory data analysis.
 
 The EV charging infrastructure pipeline: ingestion from LTA DataMall, transformation with dbt, orchestration with Dagster, and deployment via Cloud Run. See **[`sg-ev/README.md`](./sg-ev/README.md)** for full setup and usage details. Check **[`sg-ev/docs/architecture.md`](./sg-ev/docs/architecture.md)** for architecture layout. Refer **[`sg-ev/analytics/README.md`](./sg-ev/analytics/README.md)** for data visualization analysis on data collected from LTA/BigQuery. Find **[`EV_Charging_Analysis_LTA_Carpark/README.md`]** for LTA/HDB carpark analysis.
 
-## Getting started
+### Getting Started
 
 1. Clone this repository.
 2. Install dependencies for the folder you're working in (`notebook/` for exploratory analysis, `sg-ev/` for the pipeline and `EV_Charging_Analysis_LTA_Carpark` for HDB carpark — see both its own README and architecture files).
