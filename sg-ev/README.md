@@ -8,7 +8,7 @@ Dagster, Pandas, Polars, and Matplotlib.
 
 - Ingest the latest Singapore EV charging-point batch from LTA DataMall.
 - Store source data in BigQuery.
-- Transform and test data using dbt.
+- Transform and test data using dbt and dbt-expectations.
 - Build dimensional, fact, and regional summary models.
 - Analyse connector availability, connector types, operators, pricing,
   power ratings, and regional distribution.
@@ -58,7 +58,7 @@ CSV reports and charts
 | Source | LTA DataMall EV Charging Points Batch API |
 | Ingestion | Python 3.11, Requests, Google Cloud BigQuery client |
 | Data warehouse | Google BigQuery |
-| Transformation and testing | dbt Core, dbt BigQuery, dbt-utils, dbt-expectations |
+| Transformation and testing | dbt Core, dbt BigQuery, dbt-expectations |
 | Orchestration | Cloud Scheduler, Cloud Run, Dagster |
 | Local orchestration environment | Docker Compose |
 | Data analysis | Pandas and Polars |
@@ -81,6 +81,7 @@ locations consistent with the datasets and jobs used by this project.
 sg-ev/
 ├── ingestion/
 │   └── lta_ev_batch.py
+|   └── ge_validate_ev_pipeline_annotated.py
 ├── dbt/
 │   └── sg_ev/
 │       ├── dbt_project.yml
@@ -280,8 +281,8 @@ The script `analytics/ev_analysis.py` creates outputs under
 | `pandas_polars_validation.csv` | Comparison of Pandas and Polars regional counts |
 | `operator_summary.csv` | Connector distribution by operator |
 | `power_rating_by_region.csv` | Power-rating analysis by region |
-| `regional_connectors.png` | Connectors by region |
-| `connector_status_by_region.png` | Connector status by region |
+| `regional_charging_points.png` | Charging point by region |
+| `charging_point_status_by_region.png` | Charging point status by region |
 | `ac_dc_distribution.png` | AC/DC distribution |
 | `operator_distribution.png` | Distribution by operator |
 | `power_rating_by_region.png` | Power rating by region |
