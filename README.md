@@ -1,6 +1,6 @@
 # Project_2
 
-Data engineering and analysis project covering fuel prices, vehicle registration trends, and EV charging infrastructure in Singapore, drawing on Kaggle datasets, the LTA DataMall API, a cloud-based (Cloud Scheduler job run) and a local (ad-hoc Docker Dagster job run) ELT pipeline.
+Data engineering and analysis project covering fuel prices, vehicle registration trends, and EV charging infrastructure in Singapore. It draws on Kaggle datasets and the LTA DataMall API, with a cloud-based ELT pipeline (Cloud Scheduler job run) and a local one (ad-hoc Docker Dagster job run).
 
 ## Folder structure
 
@@ -9,8 +9,9 @@ Project_2/
 ├── data_kaggle/                        # Kaggle datasets
 ├── data_lta/                           # LTA DataMall datasets
 ├── notebook/                           # Jupyter notebooks for exploratory analysis
-└── sg-ev/                              # Cloud pipeline: ingestion, dbt, Dagster, docs
+├── sg-ev/                              # Cloud pipeline: ingestion, dbt, Dagster, docs
 └── EV_Charging_Analysis_LTA_Carpark/   # LTA DataMall and HDB Carpark datasets
+```
 
 ### `data_kaggle/`
 
@@ -31,9 +32,9 @@ CSV files sourced from the LTA (Land Transport Authority) API. All files in this
 
 | File | Description |
 |---|---|
-| `Car_Regn_by_make_8_2026.csv` | Monthly Car registrations by make from 2016-01 to 2026-08 |
+| `Car_Regn_by_make_8_2026.csv` | Monthly car registrations by make from 2016-01 to 2026-08 |
 | `coe_results_10_2026.csv` | Certificate of Entitlement (COE) bidding results from 2010-01 to 2026-10 |
-| `New_Cars_by_make_type_2025.csv` | Yearly New car registrations by make and type from 2015 to 2025 |
+| `New_Cars_by_make_type_2025.csv` | Yearly new car registrations by make and type from 2015 to 2025 |
 
 ### `notebook/`
 
@@ -44,15 +45,28 @@ Jupyter notebooks for exploratory data analysis.
 | `new_car_reg_make.ipynb` | Monthly car registration analysis by make |
 | `world_fuel.ipynb` | Global/regional fuel price analysis |
 | `ya_car_pop_make.ipynb` | Yearly car population analysis by make |
-| `oldev_charging_analysis.ipynb` | *(legacy — superseded by the `sg-ev` pipeline below)* Not used|
+| `oldev_charging_analysis.ipynb` | *Legacy, not used.* Superseded by the `sg-ev` pipeline below |
 
 ### `sg-ev/`
 
-The EV charging infrastructure pipeline: ingestion from LTA DataMall, transformation with dbt, orchestration with Dagster, and deployment via Cloud Run. See **[`sg-ev/README.md`](./sg-ev/README.md)** for full setup and usage details. Check **[`sg-ev/docs/architecture.md`](./sg-ev/docs/architecture.md)** for architecture layout. Refer **[`sg-ev/analytics/README.md`](./sg-ev/analytics/README.md)** for data visualization analysis on data collected from LTA/BigQuery. Find **[`EV_Charging_Analysis_LTA_Carpark/README.md`]** for LTA/HDB carpark analysis.
+The EV charging infrastructure pipeline: ingestion from LTA DataMall, transformation with dbt, orchestration with Dagster, and deployment via Cloud Run.
+
+- Setup and usage: [`sg-ev/README.md`](./sg-ev/README.md)
+- Architecture layout: [`sg-ev/docs/architecture.md`](./sg-ev/docs/architecture.md)
+- Data visualization analysis on LTA/BigQuery data: [`sg-ev/analytics/README.md`](./sg-ev/analytics/README.md)
+
+### `EV_Charging_Analysis_LTA_Carpark/`
+
+LTA/HDB carpark analysis. See [`EV_Charging_Analysis_LTA_Carpark/README.md`](./EV_Charging_Analysis_LTA_Carpark/README.md).
 
 ### Getting Started
 
 1. Clone this repository.
-2. Install dependencies for the folder you're working in (`notebook/` for exploratory analysis, `sg-ev/` for the pipeline and `EV_Charging_Analysis_LTA_Carpark` for HDB carpark — see both its own README and architecture files).
-3. Open notebooks in your VS Code to reproduce the analysis in Python 3.11 environment.
-4. Remember to change your file path should you require to run the Python scripts in your VS Code.
+2. Install dependencies for the folder you're working in:
+   - `notebook/` for exploratory analysis
+   - `sg-ev/` for the pipeline
+   - `EV_Charging_Analysis_LTA_Carpark/` for HDB carpark analysis
+
+   See each folder's own README and architecture files.
+3. Open notebooks in VS Code to reproduce the analysis in a Python 3.11 environment.
+4. Change the file paths if you need to run the Python scripts in your own VS Code setup.
