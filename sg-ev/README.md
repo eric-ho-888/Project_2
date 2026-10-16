@@ -1,12 +1,12 @@
 # Singapore EV Charging Point Analytics - Overview
 
 An end-to-end data engineering and analytics project using Singapore's
-LTA DataMall EV Charging Points Batch API, Google Cloud, BigQuery, dbt,
+LTA DataMall EV Charging Points Batch API, HDB carpark, Google Cloud, BigQuery, dbt,
 Dagster, Pandas, Polars, and Matplotlib.
 
 ## Project goals
 
-- Ingest the latest Singapore EV charging-point batch from LTA DataMall.
+- Ingest the latest Singapore EV charging-point batch from LTA DataMall and HDB carpark.
 - Store source data in BigQuery.
 - Transform and test data using dbt and dbt-expectations.
 - Build dimensional, fact, and regional summary models.
@@ -55,7 +55,7 @@ CSV reports and charts
 
 | Area | Technology |
 |---|---|
-| Source | LTA DataMall EV Charging Points Batch API |
+| Source | LTA DataMall EV Charging Points Batch API | HDB Carpark
 | Ingestion | Python 3.11, Requests, Google Cloud BigQuery client |
 | Data warehouse | Google BigQuery |
 | Transformation and testing | dbt Core, dbt BigQuery, dbt-expectations |

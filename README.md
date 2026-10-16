@@ -1,6 +1,6 @@
 # Project_2
 
-Data engineering and analysis project covering fuel prices, vehicle registration trends, and EV charging infrastructure in Singapore. It draws on Kaggle datasets and the LTA DataMall API, with a cloud-based ELT pipeline (Cloud Scheduler job run) and a local one (ad-hoc Docker Dagster job run).
+Data engineering and analysis project covering fuel prices, vehicle registration trends, and EV charging infrastructure in Singapore. It draws on Kaggle datasets, the LTA DataMall API and HDB carpark, with a cloud-based ELT pipeline (Cloud Scheduler job run) and a local one (ad-hoc Docker Dagster job run).
 
 ## Folder structure
 
@@ -70,3 +70,4 @@ LTA/HDB carpark analysis. See [`EV_Charging_Analysis_LTA_Carpark/README.md`](./E
    See each folder's own README and architecture files.
 3. Open notebooks in VS Code to reproduce the analysis in a Python 3.11 environment.
 4. Change the file paths if you need to run the Python scripts in your own VS Code setup.
+5. For the project, you may refer to the PowerPoint file "EV_Charging_Data_Platform_Presentation_Final_Version" for the project.
